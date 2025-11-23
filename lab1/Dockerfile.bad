@@ -1,0 +1,17 @@
+FROM python:latest
+
+WORKDIR /app
+
+# копируем сразу все файлы, с учетом requirements, не разделяя на слои
+COPY . .
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+# вызываем RUN для каждой операции, больше слоев!
+RUN apt-get update
+
+RUN apt-get install -y \
+    curl \
+    build-essential
+
+CMD ["python", "main.py"]
