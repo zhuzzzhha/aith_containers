@@ -21,6 +21,8 @@ RUN apt-get update && apt-get install -y \
 
 COPY . .
 
+VOLUME /app/data
+
 ENV PATH="/root/.local/bin:$PATH"
 ENV PYTHONPATH="/app"
 

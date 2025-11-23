@@ -5,6 +5,8 @@ WORKDIR /app
 # копируем сразу все файлы, с учетом requirements, не разделяя на слои
 COPY . .
 
+VOLUME /app/data
+
 RUN pip install --no-cache-dir -r requirements.txt
 
 # вызываем RUN для каждой операции, больше слоев!
